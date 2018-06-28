@@ -5,9 +5,7 @@ self.addEventListener('push', function (event) {
 
     if (event.data) {
         const data_json = event.data.json();
-        const message = event.data.text();
         var title = (data_json.title) ? data_json.title : 'Web Notification Title Goes Here!';
-        var url = (data_json.url) ? data_json.url : null;
 
         var payload = data_json.payload;
         console.debug(data_json);
@@ -19,6 +17,8 @@ self.addEventListener('push', function (event) {
 });
 self.addEventListener('notificationclick', function(event) {
     event.notification.close();
-    var url = event.notification.data.url;
-    clients.openWindow(url);
+    var url = (event.notification.data.url) ? event.notification.data.url : null;
+    if(url) {
+        clients.openWindow(url);
+    }
 });
