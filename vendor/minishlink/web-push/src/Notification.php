@@ -71,8 +71,6 @@ class Notification
         $options['urgency'] = array_key_exists('urgency', $options) ? $options['urgency'] : $defaultOptions['urgency'];
         $options['topic'] = array_key_exists('topic', $options) ? $options['topic'] : $defaultOptions['topic'];
 
-        $options['topic'] = "dddddd";
-
         return $options;
     }
 

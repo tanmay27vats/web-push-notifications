@@ -10,7 +10,7 @@ $subscription = Subscription::create(json_decode(file_get_contents('php://input'
 
 $auth = array(
     'VAPID' => array(
-        'subject' => 'Tanmay Vats',
+        'subject' => 'mailto:noreply@example.com',
         'publicKey' => 'BH0qMwONUPOKfUr4AGEbp-FAFYH43LAONgbgzhi2UyiwbpKehLpjVXHUtY_LOdRoX78zirZbA-qnuonM7ul6uLo',
         'privateKey' => 'nIEQyPvnCe02Cc3MTG-9PGP6s4XG9tri0NpI-L_MeY4', // in the real world, this would be in a secret file
     ),
@@ -44,8 +44,9 @@ $payloadData = [
 					'icon' => $image, /* icon image should be 192x192 */
 					'badge' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxvsHej9GOtoucT6KgeUVk_WXXxV-uVddfyb7QfRpo66fga6-6rw', /* badge image should be 92x92 */
 					'body' => 'Tanmay testing dynamic body @ '.date('d M, y h:i:s A'),
-					'vibrate' => [300, 100, 400],
+					'vibrate' => [300, 100, 400, 100, 300], /* virate for 300ms then 100ms pause. Then 400ms then 100ms pause then 300ms pause. This can be n number of indexed array. */
 					'data' => [
+						/* Arbitrary data that you want associated with the notification. This can be of any data type. */
 						'url' => $url
 					],
 					'image' => 'https://scontent-bom1-1.cdninstagram.com/vp/dc008cd43bf1a1102ba28e060432d3ad/5BA6512A/t51.2885-15/sh0.08/e35/p640x640/31157081_460969021021722_3955048135197196288_n.jpg'
