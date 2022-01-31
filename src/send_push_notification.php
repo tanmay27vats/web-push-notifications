@@ -11,8 +11,8 @@ $subscription = Subscription::create(json_decode(file_get_contents('php://input'
 $auth = array(
     'VAPID' => array(
         'subject' => 'mailto:noreply@example.com',
-        'publicKey' => 'BH0qMwONUPOKfUr4AGEbp-FAFYH43LAONgbgzhi2UyiwbpKehLpjVXHUtY_LOdRoX78zirZbA-qnuonM7ul6uLo',
-        'privateKey' => 'nIEQyPvnCe02Cc3MTG-9PGP6s4XG9tri0NpI-L_MeY4', // in the real world, this would be in a secret file
+        'publicKey' => 'public-key-goes-here',
+        'privateKey' => 'private-key-goes-here', // in the real world, this would be in a secret file
     ),
 );
 
